@@ -47,6 +47,7 @@ Pull the embeddinggemma model
 ```bash
 docker exec -it ollama ollama pull embeddinggemma
 ```
+
 Verify the model is downloaded
 
 ```bash
@@ -54,3 +55,11 @@ docker exec -it ollama ollama list
 ```
 
 You should see `embeddinggemma` listed in the output.
+
+## Docling Setup
+
+Install Docling
+
+```bash
+uv tool install docling
+```
