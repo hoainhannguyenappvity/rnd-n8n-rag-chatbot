@@ -1,5 +1,5 @@
 {
-  "name": "RAG Qdrant",
+  "name": "RAG Embedding Gemma",
   "nodes": [
     {
       "parameters": {
@@ -20,12 +20,12 @@
       "type": "n8n-nodes-base.formTrigger",
       "typeVersion": 2.4,
       "position": [
-        0,
-        0
+        -592,
+        208
       ],
-      "id": "6c55de25-e07d-4873-a245-d150e85474b7",
+      "id": "2f4921ae-d8af-4fd6-8c6a-df47d4a552cf",
       "name": "On form submission",
-      "webhookId": "ff39958c-c374-4d86-bc78-c9b5b2e28b21"
+      "webhookId": "cf42ff29-9b0a-46ec-a910-17fdb8d9f639"
     },
     {
       "parameters": {
@@ -40,32 +40,15 @@
       "type": "@n8n/n8n-nodes-langchain.vectorStoreQdrant",
       "typeVersion": 1.3,
       "position": [
-        256,
+        -272,
         0
       ],
-      "id": "b77d9da3-0f3b-4b8c-a839-b4b11bde3176",
+      "id": "f8e429cd-6d97-424d-a1ac-36f1db262fec",
       "name": "Qdrant Vector Store",
       "credentials": {
         "qdrantApi": {
           "id": "AFmXcqA16gBTXE7F",
           "name": "QdrantApi account"
-        }
-      }
-    },
-    {
-      "parameters": {},
-      "type": "@n8n/n8n-nodes-langchain.embeddingsGoogleGemini",
-      "typeVersion": 1,
-      "position": [
-        224,
-        224
-      ],
-      "id": "e50ac448-96bb-411c-967e-50a9f3ac1236",
-      "name": "Embeddings Google Gemini",
-      "credentials": {
-        "googlePalmApi": {
-          "id": "MYGVJPFrhgYiO7Gq",
-          "name": "Google Gemini(PaLM) Api account"
         }
       }
     },
@@ -78,10 +61,10 @@
       "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
       "typeVersion": 1.1,
       "position": [
-        352,
+        -176,
         224
       ],
-      "id": "388937c2-ed4b-4b53-9e2c-efd81b5d0cf8",
+      "id": "93a77f5d-c154-420a-9b57-dcb2b90a3f62",
       "name": "Default Data Loader"
     },
     {
@@ -93,27 +76,11 @@
       "type": "@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter",
       "typeVersion": 1,
       "position": [
-        432,
+        -96,
         432
       ],
-      "id": "c58739f3-4964-4879-95ec-f66c63b4e501",
+      "id": "239e3f3b-b241-45fc-bcfe-544710d6a70e",
       "name": "Recursive Character Text Splitter"
-    },
-    {
-      "parameters": {
-        "content": "## RAG Ingestion Process\n\n[The Only RAG Video You Need (n8n, 100% local)](https://www.youtube.com/watch?v=maZ_fF57yhE)",
-        "height": 736,
-        "width": 800,
-        "color": 6
-      },
-      "type": "n8n-nodes-base.stickyNote",
-      "position": [
-        -112,
-        -160
-      ],
-      "typeVersion": 1,
-      "id": "876b8755-577a-4b30-99c2-b17a8a644887",
-      "name": "Sticky Note"
     },
     {
       "parameters": {
@@ -122,12 +89,12 @@
       "type": "@n8n/n8n-nodes-langchain.chatTrigger",
       "typeVersion": 1.4,
       "position": [
-        1104,
-        192
+        -592,
+        712
       ],
-      "id": "505a349e-a463-415a-a0bf-5418df8d81dc",
+      "id": "a65119d1-e400-436e-a351-00d38bbab02e",
       "name": "When chat message received",
-      "webhookId": "9080974b-cc1e-4034-891f-4592d6d78899"
+      "webhookId": "e2a09f79-2b15-4222-ab3f-0b9541321d4a"
     },
     {
       "parameters": {
@@ -136,10 +103,10 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 3.1,
       "position": [
-        1376,
-        192
+        -312,
+        712
       ],
-      "id": "0f19bbfb-3a9c-4f36-bcaa-076e1b155b36",
+      "id": "ee1403bc-4168-4b4f-9086-8c344c417d5b",
       "name": "AI Agent"
     },
     {
@@ -155,10 +122,10 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
       "typeVersion": 1.3,
       "position": [
-        1328,
-        416
+        -368,
+        936
       ],
-      "id": "72f1fe8e-5892-47f3-ba1f-99003813ede9",
+      "id": "b1b7700b-a0ed-4d0a-a036-d88ab3b7d71f",
       "name": "Anthropic Chat Model",
       "credentials": {
         "anthropicApi": {
@@ -172,27 +139,11 @@
       "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
       "typeVersion": 1.3,
       "position": [
-        1456,
-        416
+        -240,
+        936
       ],
-      "id": "848f6c19-1455-421c-ab12-4a3031b46d89",
+      "id": "856921aa-7acc-43d1-8393-ce1dfbdbb8ca",
       "name": "Simple Memory"
-    },
-    {
-      "parameters": {
-        "content": "## RAG Chatbot",
-        "height": 736,
-        "width": 848,
-        "color": 4
-      },
-      "type": "n8n-nodes-base.stickyNote",
-      "position": [
-        1040,
-        -160
-      ],
-      "typeVersion": 1,
-      "id": "6ee9b9c9-366d-42d0-af86-11f8d741702f",
-      "name": "Sticky Note1"
     },
     {
       "parameters": {
@@ -208,15 +159,34 @@
       "type": "@n8n/n8n-nodes-langchain.vectorStoreQdrant",
       "typeVersion": 1.3,
       "position": [
-        1584,
-        416
+        -112,
+        936
       ],
-      "id": "5285bfdd-0f49-4858-9ddb-d42d04df92e6",
+      "id": "c71ecad7-33db-40ca-af62-3e70a1155210",
       "name": "database_retriever",
       "credentials": {
         "qdrantApi": {
           "id": "AFmXcqA16gBTXE7F",
           "name": "QdrantApi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": "embeddinggemma:latest"
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOllama",
+      "typeVersion": 1,
+      "position": [
+        -304,
+        224
+      ],
+      "id": "d39188ba-1506-489d-87c8-34082ee0fd6c",
+      "name": "Embeddings Ollama",
+      "credentials": {
+        "ollamaApi": {
+          "id": "nhHBBodbIfaKlgt0",
+          "name": "Ollama account"
         }
       }
     }
@@ -229,22 +199,6 @@
           {
             "node": "Qdrant Vector Store",
             "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Embeddings Google Gemini": {
-      "ai_embedding": [
-        [
-          {
-            "node": "Qdrant Vector Store",
-            "type": "ai_embedding",
-            "index": 0
-          },
-          {
-            "node": "database_retriever",
-            "type": "ai_embedding",
             "index": 0
           }
         ]
@@ -315,6 +269,22 @@
           }
         ]
       ]
+    },
+    "Embeddings Ollama": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Qdrant Vector Store",
+            "type": "ai_embedding",
+            "index": 0
+          },
+          {
+            "node": "database_retriever",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "active": false,
@@ -322,11 +292,11 @@
     "executionOrder": "v1",
     "availableInMCP": false
   },
-  "versionId": "34302a79-a4bc-4569-9578-85ad84c3b9e7",
+  "versionId": "357cf1e3-6fef-4e58-9e73-c8549198a416",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "d0a98d1883d50ab1fb11f1c2089250d1d7492821be2ab8133be1cc4d824c5a45"
   },
-  "id": "cdhXWqt_EeVsOb0uBQn7B",
+  "id": "JL0qmtN9LQbmoewD",
   "tags": []
 }
