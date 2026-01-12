@@ -18,7 +18,7 @@ set NODES_EXCLUDE="[]" && set N8N_COMMUNITY_PACKAGES_ENABLED=true && set NODE_FU
 
 ### Import Workflow
 
-Import **RAG.json** file to your n8n workflows
+Import **RAG.json** or **RAG Embedding Gemma.json** file to your n8n workflows
 
 ## Ollama Docker Setup
 
