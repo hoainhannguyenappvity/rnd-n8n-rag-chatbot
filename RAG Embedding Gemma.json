@@ -84,6 +84,8 @@
     },
     {
       "parameters": {
+        "public": true,
+        "initialMessages": "Hi there! 👋\nMy name is n8n. How can I assist you today?",
         "options": {}
       },
       "type": "@n8n/n8n-nodes-langchain.chatTrigger",
@@ -98,6 +100,8 @@
     },
     {
       "parameters": {
+        "promptType": "define",
+        "text": "=You are acting as a helpful AI assistant that can answer questions about the MOMENTUM True Wireless 4 product.\n\nUse only the context provided to answer the question.\nIf you don't know, do not make up an answer.\nDo not add or change items on the product.\n\nQuestion: {{ $json.chatInput }}",
         "options": {}
       },
       "type": "@n8n/n8n-nodes-langchain.agent",
@@ -292,7 +296,7 @@
     "executionOrder": "v1",
     "availableInMCP": false
   },
-  "versionId": "357cf1e3-6fef-4e58-9e73-c8549198a416",
+  "versionId": "203374bd-3003-4d0c-a354-02bf77c86a4b",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "d0a98d1883d50ab1fb11f1c2089250d1d7492821be2ab8133be1cc4d824c5a45"
