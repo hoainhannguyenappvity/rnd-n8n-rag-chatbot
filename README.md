@@ -52,6 +52,30 @@ which n8n
 pm2 start $HOME/.nvm/versions/node/v24.12.0/bin/n8n
 ```
 
+### Docker Startup
+
+Run n8n with Docker
+
+```bash
+docker volume create n8n_data
+
+docker run -it --rm \
+ --name n8n \
+ -p 5678:5678 \
+ -e GENERIC_TIMEZONE="Asia/Ho_Chi_Minh" \
+ -e TZ="Asia/Ho_Chi_Minh" \
+ -e "NODES_EXCLUDE=[]" \
+ -e N8N_COMMUNITY_PACKAGES_ENABLED=true \
+ -e NODE_FUNCTION_ALLOW_EXTERNAL=uuid \
+ -e N8N_RESTRICT_FILE_ACCESS_TO=./ \
+ -e N8N_SECURE_COOKIE=false \
+ -v n8n_data:/home/node/.n8n \
+ --network local \
+ n8nio/n8n
+```
+
+Verify n8n is running by accessing `http://localhost:5678` in your web browser.
+
 ### Import Workflow
 
 Import **RAG.json** or **RAG Embedding Gemma.json** file to your n8n workflows
@@ -69,7 +93,15 @@ docker pull qdrant/qdrant:latest
 Run the Qdrant container
 
 ```bash
-docker run -d --name qdrant -p 6333:6333 qdrant/qdrant:latest
+docker volume create qdrant_data
+
+docker run -d \
+ --name qdrant \
+ -p 6333:6333 \
+ -p 6334:6334 \
+ -v qdrant_data:/qdrant/storage:z \
+ --network local \
+ qdrant/qdrant:latest
 ```
 
 Verify the Qdrant container is running
@@ -91,7 +123,14 @@ docker pull ollama/ollama:latest
 Run the Ollama container
 
 ```bash
-docker run -d --name ollama -p 11434:11434 ollama/ollama:latest
+docker volume create ollama_data
+
+docker run -d \
+ --name ollama \
+ -p 11434:11434 \
+ -v ollama_data:/root/.ollama \
+ --network local \
+ ollama/ollama:latest
 ```
 
 Verify the Ollama container is running
