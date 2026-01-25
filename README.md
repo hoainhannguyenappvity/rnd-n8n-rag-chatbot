@@ -155,12 +155,46 @@ docker exec -it ollama ollama list
 
 You should see `embeddinggemma` listed in the output.
 
+## Open WebUI Setup (Optional)
+
+You can use Open WebUI to interact with Ollama models via web interface.
+
+Install Open WebUI via Docker
+
+```bash
+docker pull ghcr.io/open-webui/open-webui:latest
+```
+
+Run the Open WebUI container
+
+```bash
+docker volume create open-webui_data
+
+docker run -d -p 3000:8080 --add-host=host.docker.internal:host-gateway -v open-webui_data:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui
+```
+
+Verify the Open WebUI container is running
+
+```bash
+docker ps
+```
+
+You should see the `open-webui` container listed in the output.
+
+Access Open WebUI at `http://localhost:3000` in your web browser.
+
 ## Docling Setup (Optional)
 
 Install Docling tool via [uv](https://github.com/astral-sh/uv)
 
 ```bash
 uv tool install docling
+```
+
+Verify Docling installation
+
+```bash
+docling --version
 ```
 
 ## Publish Workflow (Optional)
